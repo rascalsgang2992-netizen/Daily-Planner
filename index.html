@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="planner-panel" aria-label="Daily task planner">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">Daily Planner</p>
+            <h1>Plan today. Review any day.</h1>
+          </div>
+          <div class="date-card">
+            <label for="taskDate">Selected date</label>
+            <input id="taskDate" type="date" />
+          </div>
+        </header>
+
+        <section class="summary-grid" aria-label="Task summary">
+          <article class="summary-item">
+            <span id="totalCount">0</span>
+            <p>Total</p>
+          </article>
+          <article class="summary-item">
+            <span id="pendingCount">0</span>
+            <p>Pending</p>
+          </article>
+          <article class="summary-item">
+            <span id="completedCount">0</span>
+            <p>Completed</p>
+          </article>
+        </section>
+
+        <form class="task-form" id="taskForm">
+          <label for="taskInput">Add task</label>
+          <div class="task-entry">
+            <input
+              id="taskInput"
+              type="text"
+              autocomplete="off"
+              placeholder="Write a task for the selected date"
+              maxlength="120"
+              required
+            />
+            <button type="submit">Add</button>
+          </div>
+        </form>
+
+        <nav class="tabs" aria-label="Task filter">
+          <button class="tab active" type="button" data-filter="all">All</button>
+          <button class="tab" type="button" data-filter="pending">Pending</button>
+          <button class="tab" type="button" data-filter="completed">Completed</button>
+        </nav>
+
+        <section class="history-section" aria-label="Dates with tasks">
+          <h2>Task dates</h2>
+          <div class="date-strip" id="dateStrip"></div>
+        </section>
+
+        <section class="task-list-wrap" aria-live="polite">
+          <div class="section-title">
+            <h2 id="listTitle">Tasks</h2>
+            <button class="quiet-button" id="todayButton" type="button">Today</button>
+          </div>
+          <ul class="task-list" id="taskList"></ul>
+          <div class="empty-state" id="emptyState">
+            <h3>No tasks here yet</h3>
+            <p>Add a task for this date or choose another date to review older work.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
